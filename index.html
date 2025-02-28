@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -22,11 +23,11 @@ line-height: 1.3;
 background-color: white;
     opacity: 0;
     transition: opacity 0.7s ease-in-out;
- 
 }
 
 :root {
-    --img-width: 90rem; /* Fallback di sicurezza */
+    --img-width: min(90rem, 100vw);
+    --contenitore-width: min(90rem, 100vw);
 }
 
 
@@ -35,7 +36,8 @@ background-color: white;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: var(--contenitore-width);
+
     margin: 0 auto; /* Lo mantiene centrato */
     background-color: yellow;
 
@@ -59,7 +61,7 @@ align-items: center;
     background-color: #013642;
     margin-bottom: 1rem;
  width: 100%;
-max-width: var(--img-width);
+// max-width: var(--img-width);
 padding: 1rem 0 1rem 0;
     }
 
@@ -84,22 +86,27 @@ font-size: var(--font-size-header);
     margin: 0; 
     padding: 0; 
     // background-color: #000601; /* Placeholder fino al caricamento */
-      overflow: auto;
+    overflow: auto;
+
       text-align: center; /* Centra orizzontalmente */
 }
 
 .immagine-container img {
     display: block;
-width: var(--img-width);
+ width: var(--img-width);
+// max-width: 100vw;
+
    height: auto; 
 margin: 0 auto;
     border-top: 0.6rem solid #a10211;
     border-bottom: 0.6rem solid #a10211;
+    padding: 0; 
+
 }
 
 
 .utilizzo {
-max-width: var(--img-width);
+// max-width: var(--img-width);
 width: 100%;
 font-weight: bold;
     display: flex;
@@ -119,6 +126,28 @@ font-size: var(--font-size-tstutil);
   word-break: break-word;
 }
 
+.funzionalità {
+margin: 0 6vw 3.3vw 6vw; 
+border-top: 0.8rem solid red;
+// overflow: hidden;
+box-sizing: border-box;
+}
+
+.funzionalità p.titolo {
+font-size: var(--font-size-funztit);
+font-weight: 900;
+color: #025669;
+}
+
+.funzionalità p, .testospieg p {
+font-size: var(--font-size-funzion);
+text-align: justify;
+margin-top: 0.4rem;
+  hyphens: auto;
+  word-break: break-word;
+}
+
+
     </style>
 </head>
 <body>
@@ -137,47 +166,19 @@ font-size: var(--font-size-tstutil);
 Questo strumento è pensato per simulare dispositivi mobili e non è utilizzabile su smartphone o tablet.</p>
 </div>
 
+
+<div class="funzionalità">
+  <p class="titolo">Introduzione alla Teoria dei Pixel e del Rendering Grafico</p>
+  <p>Questa pagina è dedicata alla comprensione delle basi tecniche che influenzano la visualizzazione dei siti web sui diversi dispositivi.</p> 
+  <p>Comprendere questi concetti ti consentirà di progettare siti web ottimizzati per garantire un’esperienza utente eccellente su qualsiasi schermo.</p>
+  <p>Affronteremo concetti fondamentali come i pixel reali e i pixel CSS, la risoluzione dello schermo, il rapporto d'aspetto, il PPI e il Device Pixel Ratio (DPR), oltre a concetti correlati come anti-aliasing e interpolazione.</p>
+  <p>Queste conoscenze non solo ti aiuteranno a ottimizzare il design responsivo, ma ti permetteranno anche di comprendere come i dispositivi e i browser interpretano e gestiscono i contenuti grafici.</p>
+</div>
+
 </div>
 <script>
 
-document.addEventListener("DOMContentLoaded", function() {
-      const container = document.querySelector('.contenitoremax');
-    const immaginecont = document.querySelector('.immagine-container');
-    const immagine = document.querySelector('.immagine-container img');
 
-      // Ottenere il valore reale di clientWidth e innerWidth
-      const clientWidth = document.documentElement.clientWidth;
-
-      // Controllare se lo zoom NON è al 100%
-      const zoomLevel = window.outerWidth / window.innerWidth;
-      console.log(zoomLevel);
-
-      if (zoomLevel === 1) {
-        // Se lo zoom è 100%, calcola e salva la larghezza
-        const remInPixels = parseFloat(getComputedStyle(document.documentElement).fontSize);
-        const widthInRem = clientWidth / remInPixels;
-
-        // Salva la larghezza nel LocalStorage
-        localStorage.setItem('contenitoreWidth', widthInRem);
-
-        // Imposta la larghezza
-        document.documentElement.style.setProperty('--img-width', widthInRem + "rem");
-
-        console.log(`Larghezza impostata a ${widthInRem}rem e salvata nel LocalStorage.`);
-      } else {
-        // Se lo zoom NON è 100%, recupera la larghezza salvata
-        const storedWidth = localStorage.getItem('contenitoreWidth');
-
-        if (storedWidth) {
-          // Se esiste una larghezza salvata, la usiamo
-          document.documentElement.style.setProperty('--img-width', storedWidth + "rem");
-          console.log(`Zoom non al 100%. Recuperata larghezza salvata: ${storedWidth}rem.`);
-        } else {
-          // Se nessuna larghezza è salvata (prima visita), lasciamo il valore CSS
-          console.warn("Zoom non al 100% e nessuna larghezza salvata. Usando larghezza di default.");
-        }
-      }
-    });
 
 // Mappa delle dimensioni del font per ogni intervallo
 const fontSizeMap = [
@@ -219,9 +220,13 @@ function aggiornaFont(min, max) {
 
 
 
-window.addEventListener("load", () => {
-    requestIdleCallback(() => { // Esegue solo quando il browser è pronto
+
+window.addEventListener("load", () => {    
+
+     requestIdleCallback(() => { // Esegue solo quando il browser è pronto
         const larghezzaBody = document.documentElement.clientWidth;
+        console.log("📏 Larghezza del body è", larghezzaBody);
+
         const intervalloAttuale = fontSizeMap.find(([max, min]) => larghezzaBody <= max && larghezzaBody >= min);
 
         if (intervalloAttuale) {
@@ -232,9 +237,14 @@ window.addEventListener("load", () => {
         }
 
         aggiornaMultiLine();
+
         document.body.style.opacity = "1"; // Mostra il sito dopo il calcolo
+       // calcolaLarghezzaImmagine(larghezzaBody);
+
     });
 });
+
+
 
 
 
@@ -254,16 +264,72 @@ function aggiornaMultiLine() {
     document.querySelector(".nowrap")?.classList.toggle("multi-line", larghezzaBody <= 640);
 }
 
+function getDPRNativo() {
+    let dprSalvato = localStorage.getItem('DPR_NATIVO');
+    
+    if (dprSalvato) {
+        return parseFloat(dprSalvato); // Usa il valore salvato se disponibile
+    } else {
+        let dpr = window.devicePixelRatio || 1; // Calcola il DPR iniziale
+        localStorage.setItem('DPR_NATIVO', dpr); // Lo memorizza
+        return dpr;
+    }
+}
+
+const DPR_NATIVO = getDPRNativo(); // Ora il DPR è stabile e non cambia al refresh
+
+function calcolaZoom() {
+    return Math.round((window.devicePixelRatio / DPR_NATIVO) * 100);
+}
+
+console.log("DPR NATIVO", DPR_NATIVO);
 
 
+function calcolaMinWidth() {
+    let remInPx = parseFloat(getComputedStyle(document.documentElement).fontSize); // Ottiene 1rem in pixel
+    let width90rem = 90 * remInPx; // Calcola 90rem in pixel
+    let width100vw = window.innerWidth; // Ottiene 100vw in pixel
+    return Math.min(width90rem, width100vw); // Prende il valore più piccolo tra 90rem e 100vw
+}
+
+function aggiornaLarghezzaContenitore() {
+    let zoomAttuale = calcolaZoom();
+    let larghezzaDisponibile = document.documentElement.clientWidth;
+    let larghezzaSchermo = screen.width; // Larghezza nativa dello schermo
+
+    if (zoomAttuale >= 100) {
+      console.log("Lo zoom è maggiore di 100");
+        // Se lo zoom è ≥100% o il resize è >= larghezza schermo, espandi il contenitore
+        document.documentElement.style.setProperty('--contenitore-width', `${larghezzaDisponibile}px`);
+        document.documentElement.style.setProperty('--img-width', `${larghezzaDisponibile}px`);
+    } else {   
+        console.log("Lo zoom è minore di 100");
+        // Se lo zoom scende sotto il 100%, assegniamo manualmente il valore di min(90rem, 100vw)
+        let larghezzaMin = calcolaMinWidth();
+       console.log("larghezzaMin è", larghezzaMin);
+        document.documentElement.style.setProperty('--contenitore-width', `${larghezzaMin}px`);
+        document.documentElement.style.setProperty('--img-width', `${larghezzaMin}px`);
+    }
+
+    console.log(`Zoom: ${zoomAttuale}% | Larghezza viewport: ${larghezzaDisponibile}px | Larghezza schermo: ${larghezzaSchermo}px | 90rem in px: ${90 * parseFloat(getComputedStyle(document.documentElement).fontSize)}`);
+}
+
+// Esegui solo al caricamento se lo zoom è ≥100%
+if (calcolaZoom() >= 100) {
+    aggiornaLarghezzaContenitore();
+}
+
+// Aggiungi il listener per resize e zoom dinamico
+window.addEventListener('resize', aggiornaLarghezzaContenitore);
+// window.addEventListener('wheel', () => setTimeout(aggiornaLarghezzaContenitore, 200)); // Gestisce lo zoom dinamicamente
+window.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && (e.key === '+' || e.key === '-')) {
+        setTimeout(aggiornaLarghezzaContenitore, 200); // Zoom con CTRL +/-
+    }
+});
 
 
 </script>
-
-
-
-
-
 
 
 </body>
