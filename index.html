@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -23,12 +22,21 @@ line-height: 1.3;
 background-color: white;
     opacity: 0;
     transition: opacity 0.7s ease-in-out;
+  min-height: 100vh;
 }
 
+
+
+
 :root {
-    --img-width: min(90rem, 100vw);
-    --contenitore-width: min(90rem, 100vw);
+    --contenitore-width: 90rem; /* Valore di fallback iniziale */
+    --img-width: 90rem; /* Valore di fallback iniziale */
+    --font-size-header: 3rem;
+    --font-size-tstutil: 1.5rem;
+    --font-size-funztit: 2.2rem;
+    --font-size-funzion: 1.5rem;
 }
+
 
 
 .contenitoremax {
@@ -93,8 +101,8 @@ font-size: var(--font-size-header);
 
 .immagine-container img {
     display: block;
- width: var(--img-width);
-// max-width: 100vw;
+width: var(--img-width);
+// width: 100vw;
 
    height: auto; 
 margin: 0 auto;
@@ -134,13 +142,15 @@ box-sizing: border-box;
 }
 
 .funzionalità p.titolo {
-font-size: var(--font-size-funztit);
+font-size: var(--font-size-funztit, 2.2rem); 
+// font-size: 2.2rem;
 font-weight: 900;
 color: #025669;
 }
 
 .funzionalità p, .testospieg p {
-font-size: var(--font-size-funzion);
+ font-size: var(--font-size-funzion, 1.5rem); 
+// font-size: 1.5rem;
 text-align: justify;
 margin-top: 0.4rem;
   hyphens: auto;
@@ -221,8 +231,7 @@ function aggiornaFont(min, max) {
 
 
 
-window.addEventListener("load", () => {    
-
+window.addEventListener("load", () => {        
      requestIdleCallback(() => { // Esegue solo quando il browser è pronto
         const larghezzaBody = document.documentElement.clientWidth;
         console.log("📏 Larghezza del body è", larghezzaBody);
@@ -237,12 +246,11 @@ window.addEventListener("load", () => {
         }
 
         aggiornaMultiLine();
-
+ aggiornaLarghezzaContenitore();
         document.body.style.opacity = "1"; // Mostra il sito dopo il calcolo
-       // calcolaLarghezzaImmagine(larghezzaBody);
-
     });
-});
+}); 
+
 
 
 
@@ -258,6 +266,8 @@ fontSizeMap.forEach(([max, min]) => {
         }
     });
 });
+
+
 
 function aggiornaMultiLine() {
     const larghezzaBody = document.documentElement.clientWidth;
@@ -285,39 +295,35 @@ function calcolaZoom() {
 console.log("DPR NATIVO", DPR_NATIVO);
 
 
-function calcolaMinWidth() {
-    let remInPx = parseFloat(getComputedStyle(document.documentElement).fontSize); // Ottiene 1rem in pixel
-    let width90rem = 90 * remInPx; // Calcola 90rem in pixel
-    let width100vw = window.innerWidth; // Ottiene 100vw in pixel
-    return Math.min(width90rem, width100vw); // Prende il valore più piccolo tra 90rem e 100vw
-}
 
 function aggiornaLarghezzaContenitore() {
     let zoomAttuale = calcolaZoom();
     let larghezzaDisponibile = document.documentElement.clientWidth;
-    let larghezzaSchermo = screen.width; // Larghezza nativa dello schermo
+    let larghezzaSchermo = screen.width; // Larghezza effettiva dello schermo
 
+    console.log("📏 Larghezza viewport attuale:", larghezzaDisponibile);
+
+    // Se lo zoom è ≥100%, il contenitore si adatta alla larghezza visibile
     if (zoomAttuale >= 100) {
-      console.log("Lo zoom è maggiore di 100");
-        // Se lo zoom è ≥100% o il resize è >= larghezza schermo, espandi il contenitore
+        console.log("🔍 Zoom >= 100%, il contenitore si allarga a tutto il viewport");
         document.documentElement.style.setProperty('--contenitore-width', `${larghezzaDisponibile}px`);
         document.documentElement.style.setProperty('--img-width', `${larghezzaDisponibile}px`);
     } else {   
-        console.log("Lo zoom è minore di 100");
-        // Se lo zoom scende sotto il 100%, assegniamo manualmente il valore di min(90rem, 100vw)
-        let larghezzaMin = calcolaMinWidth();
-       console.log("larghezzaMin è", larghezzaMin);
+        console.log("🔍 Zoom < 100%, calcolo della larghezza dinamica");
+        
+        // Calcoliamo una larghezza adattabile per qualsiasi monitor
+        let larghezzaMin = Math.min(90 * parseFloat(getComputedStyle(document.documentElement).fontSize), larghezzaDisponibile);
+
+        console.log("📏 Larghezza minima calcolata:", larghezzaMin);
+
         document.documentElement.style.setProperty('--contenitore-width', `${larghezzaMin}px`);
         document.documentElement.style.setProperty('--img-width', `${larghezzaMin}px`);
     }
 
-    console.log(`Zoom: ${zoomAttuale}% | Larghezza viewport: ${larghezzaDisponibile}px | Larghezza schermo: ${larghezzaSchermo}px | 90rem in px: ${90 * parseFloat(getComputedStyle(document.documentElement).fontSize)}`);
+
 }
 
-// Esegui solo al caricamento se lo zoom è ≥100%
-if (calcolaZoom() >= 100) {
-    aggiornaLarghezzaContenitore();
-}
+
 
 // Aggiungi il listener per resize e zoom dinamico
 window.addEventListener('resize', aggiornaLarghezzaContenitore);
@@ -329,7 +335,19 @@ window.addEventListener('keydown', (e) => {
 });
 
 
+
+
+
+
+
+
+
 </script>
+
+
+
+
+
 
 
 </body>
