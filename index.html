@@ -517,17 +517,19 @@ if (zoomAttuale > 100) {
         this.ultimoZoom = this.calcolaZoom();
 
 
-        window.addEventListener("load", () => {
-            requestIdleCallback(() => {
-this.ultimoClientWidth = document.documentElement.clientWidth;
- // this.impostaBordiIniziali();
-this.verificaBordiDuranteZoom();
-this.aggiornaLarghezzaContenitore();
-                this.aggiornaFont();
-                this.aggiornaMultiLine();
-                document.body.style.opacity = "1";
-            });
-        });
+window.addEventListener("load", () => {
+    // ✅ Sostituisci requestIdleCallback con un setTimeout a 0 ms
+    setTimeout(() => {
+        this.ultimoClientWidth = document.documentElement.clientWidth;
+        // this.impostaBordiIniziali();
+        this.verificaBordiDuranteZoom();
+        this.aggiornaLarghezzaContenitore();
+        this.aggiornaFont();
+        this.aggiornaMultiLine();
+        document.body.style.opacity = "1";
+    }, 0);
+});
+
 
         window.addEventListener("resize", () => {
             this.aggiornaLarghezzaContenitore();
