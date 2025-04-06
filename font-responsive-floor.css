@@ -1,0 +1,476 @@
+:root {
+  --contenitore-width: 1425px; 
+  --img-width: 1425px;
+  --img-col1: 692px;
+  --img-col2: 499px;
+}
+
+html[data-w="50"] {
+  --font-size-header: 0.600rem;
+  --font-size-tstutil: 0.400rem;
+  --font-size-funztit: 0.850rem;
+  --font-size-funzion: 0.600rem;
+}
+
+html[data-w="80"] {
+  --font-size-header: 0.652rem;
+  --font-size-tstutil: 0.424rem;
+  --font-size-funztit: 0.877rem;
+  --font-size-funzion: 0.620rem;
+}
+
+html[data-w="110"] {
+  --font-size-header: 0.705rem;
+  --font-size-tstutil: 0.448rem;
+  --font-size-funztit: 0.905rem;
+  --font-size-funzion: 0.639rem;
+}
+
+html[data-w="140"] {
+  --font-size-header: 0.757rem;
+  --font-size-tstutil: 0.472rem;
+  --font-size-funztit: 0.932rem;
+  --font-size-funzion: 0.659rem;
+}
+
+html[data-w="170"] {
+  --font-size-header: 0.809rem;
+  --font-size-tstutil: 0.496rem;
+  --font-size-funztit: 0.959rem;
+  --font-size-funzion: 0.679rem;
+}
+
+html[data-w="200"] {
+  --font-size-header: 0.862rem;
+  --font-size-tstutil: 0.520rem;
+  --font-size-funztit: 0.986rem;
+  --font-size-funzion: 0.698rem;
+}
+
+html[data-w="230"] {
+  --font-size-header: 0.914rem;
+  --font-size-tstutil: 0.544rem;
+  --font-size-funztit: 1.014rem;
+  --font-size-funzion: 0.718rem;
+}
+
+html[data-w="260"] {
+  --font-size-header: 0.967rem;
+  --font-size-tstutil: 0.568rem;
+  --font-size-funztit: 1.041rem;
+  --font-size-funzion: 0.737rem;
+}
+
+html[data-w="290"] {
+  --font-size-header: 1.019rem;
+  --font-size-tstutil: 0.592rem;
+  --font-size-funztit: 1.068rem;
+  --font-size-funzion: 0.757rem;
+}
+
+html[data-w="320"] {
+  --font-size-header: 1.071rem;
+  --font-size-tstutil: 0.616rem;
+  --font-size-funztit: 1.095rem;
+  --font-size-funzion: 0.777rem;
+}
+
+html[data-w="350"] {
+  --font-size-header: 1.124rem;
+  --font-size-tstutil: 0.640rem;
+  --font-size-funztit: 1.123rem;
+  --font-size-funzion: 0.796rem;
+}
+
+html[data-w="380"] {
+  --font-size-header: 1.176rem;
+  --font-size-tstutil: 0.664rem;
+  --font-size-funztit: 1.150rem;
+  --font-size-funzion: 0.816rem;
+}
+
+html[data-w="410"] {
+  --font-size-header: 1.228rem;
+  --font-size-tstutil: 0.688rem;
+  --font-size-funztit: 1.177rem;
+  --font-size-funzion: 0.836rem;
+}
+
+html[data-w="440"] {
+  --font-size-header: 1.281rem;
+  --font-size-tstutil: 0.712rem;
+  --font-size-funztit: 1.205rem;
+  --font-size-funzion: 0.855rem;
+}
+
+html[data-w="470"] {
+  --font-size-header: 1.333rem;
+  --font-size-tstutil: 0.736rem;
+  --font-size-funztit: 1.232rem;
+  --font-size-funzion: 0.875rem;
+}
+
+html[data-w="500"] {
+  --font-size-header: 1.385rem;
+  --font-size-tstutil: 0.760rem;
+  --font-size-funztit: 1.259rem;
+  --font-size-funzion: 0.895rem;
+}
+
+html[data-w="530"] {
+  --font-size-header: 1.438rem;
+  --font-size-tstutil: 0.784rem;
+  --font-size-funztit: 1.286rem;
+  --font-size-funzion: 0.914rem;
+}
+
+html[data-w="560"] {
+  --font-size-header: 1.490rem;
+  --font-size-tstutil: 0.808rem;
+  --font-size-funztit: 1.314rem;
+  --font-size-funzion: 0.934rem;
+}
+
+html[data-w="590"] {
+  --font-size-header: 1.543rem;
+  --font-size-tstutil: 0.832rem;
+  --font-size-funztit: 1.341rem;
+  --font-size-funzion: 0.953rem;
+}
+
+html[data-w="620"] {
+  --font-size-header: 1.595rem;
+  --font-size-tstutil: 0.856rem;
+  --font-size-funztit: 1.368rem;
+  --font-size-funzion: 0.973rem;
+}
+
+html[data-w="650"] {
+  --font-size-header: 1.647rem;
+  --font-size-tstutil: 0.880rem;
+  --font-size-funztit: 1.395rem;
+  --font-size-funzion: 0.993rem;
+}
+
+html[data-w="680"] {
+  --font-size-header: 1.700rem;
+  --font-size-tstutil: 0.904rem;
+  --font-size-funztit: 1.423rem;
+  --font-size-funzion: 1.012rem;
+}
+
+html[data-w="710"] {
+  --font-size-header: 1.752rem;
+  --font-size-tstutil: 0.928rem;
+  --font-size-funztit: 1.450rem;
+  --font-size-funzion: 1.032rem;
+}
+
+html[data-w="740"] {
+  --font-size-header: 1.804rem;
+  --font-size-tstutil: 0.952rem;
+  --font-size-funztit: 1.477rem;
+  --font-size-funzion: 1.052rem;
+}
+
+html[data-w="770"] {
+  --font-size-header: 1.857rem;
+  --font-size-tstutil: 0.976rem;
+  --font-size-funztit: 1.505rem;
+  --font-size-funzion: 1.071rem;
+}
+
+html[data-w="800"] {
+  --font-size-header: 1.909rem;
+  --font-size-tstutil: 1.000rem;
+  --font-size-funztit: 1.532rem;
+  --font-size-funzion: 1.091rem;
+}
+
+html[data-w="830"] {
+  --font-size-header: 1.961rem;
+  --font-size-tstutil: 1.024rem;
+  --font-size-funztit: 1.559rem;
+  --font-size-funzion: 1.111rem;
+}
+
+html[data-w="860"] {
+  --font-size-header: 2.014rem;
+  --font-size-tstutil: 1.048rem;
+  --font-size-funztit: 1.586rem;
+  --font-size-funzion: 1.130rem;
+}
+
+html[data-w="890"] {
+  --font-size-header: 2.066rem;
+  --font-size-tstutil: 1.072rem;
+  --font-size-funztit: 1.614rem;
+  --font-size-funzion: 1.150rem;
+}
+
+html[data-w="920"] {
+  --font-size-header: 2.119rem;
+  --font-size-tstutil: 1.096rem;
+  --font-size-funztit: 1.641rem;
+  --font-size-funzion: 1.169rem;
+}
+
+html[data-w="950"] {
+  --font-size-header: 2.171rem;
+  --font-size-tstutil: 1.120rem;
+  --font-size-funztit: 1.668rem;
+  --font-size-funzion: 1.189rem;
+}
+
+html[data-w="980"] {
+  --font-size-header: 2.223rem;
+  --font-size-tstutil: 1.144rem;
+  --font-size-funztit: 1.695rem;
+  --font-size-funzion: 1.209rem;
+}
+
+html[data-w="1010"] {
+  --font-size-header: 2.276rem;
+  --font-size-tstutil: 1.168rem;
+  --font-size-funztit: 1.723rem;
+  --font-size-funzion: 1.228rem;
+}
+
+html[data-w="1040"] {
+  --font-size-header: 2.328rem;
+  --font-size-tstutil: 1.192rem;
+  --font-size-funztit: 1.750rem;
+  --font-size-funzion: 1.248rem;
+}
+
+html[data-w="1070"] {
+  --font-size-header: 2.380rem;
+  --font-size-tstutil: 1.216rem;
+  --font-size-funztit: 1.777rem;
+  --font-size-funzion: 1.268rem;
+}
+
+html[data-w="1100"] {
+  --font-size-header: 2.433rem;
+  --font-size-tstutil: 1.240rem;
+  --font-size-funztit: 1.805rem;
+  --font-size-funzion: 1.287rem;
+}
+
+html[data-w="1130"] {
+  --font-size-header: 2.485rem;
+  --font-size-tstutil: 1.264rem;
+  --font-size-funztit: 1.832rem;
+  --font-size-funzion: 1.307rem;
+}
+
+html[data-w="1160"] {
+  --font-size-header: 2.537rem;
+  --font-size-tstutil: 1.288rem;
+  --font-size-funztit: 1.859rem;
+  --font-size-funzion: 1.327rem;
+}
+
+html[data-w="1190"] {
+  --font-size-header: 2.590rem;
+  --font-size-tstutil: 1.312rem;
+  --font-size-funztit: 1.886rem;
+  --font-size-funzion: 1.346rem;
+}
+
+html[data-w="1220"] {
+  --font-size-header: 2.642rem;
+  --font-size-tstutil: 1.336rem;
+  --font-size-funztit: 1.914rem;
+  --font-size-funzion: 1.366rem;
+}
+
+html[data-w="1250"] {
+  --font-size-header: 2.695rem;
+  --font-size-tstutil: 1.360rem;
+  --font-size-funztit: 1.941rem;
+  --font-size-funzion: 1.385rem;
+}
+
+html[data-w="1280"] {
+  --font-size-header: 2.747rem;
+  --font-size-tstutil: 1.384rem;
+  --font-size-funztit: 1.968rem;
+  --font-size-funzion: 1.405rem;
+}
+
+html[data-w="1310"] {
+  --font-size-header: 2.799rem;
+  --font-size-tstutil: 1.408rem;
+  --font-size-funztit: 1.995rem;
+  --font-size-funzion: 1.425rem;
+}
+
+html[data-w="1340"] {
+  --font-size-header: 2.852rem;
+  --font-size-tstutil: 1.432rem;
+  --font-size-funztit: 2.023rem;
+  --font-size-funzion: 1.444rem;
+}
+
+html[data-w="1370"] {
+  --font-size-header: 2.904rem;
+  --font-size-tstutil: 1.456rem;
+  --font-size-funztit: 2.050rem;
+  --font-size-funzion: 1.464rem;
+}
+
+html[data-w="1400"] {
+  --font-size-header: 2.956rem;
+  --font-size-tstutil: 1.480rem;
+  --font-size-funztit: 2.077rem;
+  --font-size-funzion: 1.484rem;
+}
+
+html[data-w="1430"] {
+  --font-size-header: 3.009rem;
+  --font-size-tstutil: 1.504rem;
+  --font-size-funztit: 2.105rem;
+  --font-size-funzion: 1.503rem;
+}
+
+html[data-w="1460"] {
+  --font-size-header: 3.061rem;
+  --font-size-tstutil: 1.528rem;
+  --font-size-funztit: 2.132rem;
+  --font-size-funzion: 1.523rem;
+}
+
+html[data-w="1490"] {
+  --font-size-header: 3.113rem;
+  --font-size-tstutil: 1.552rem;
+  --font-size-funztit: 2.159rem;
+  --font-size-funzion: 1.543rem;
+}
+
+html[data-w="1520"] {
+  --font-size-header: 3.166rem;
+  --font-size-tstutil: 1.576rem;
+  --font-size-funztit: 2.186rem;
+  --font-size-funzion: 1.562rem;
+}
+
+html[data-w="1550"] {
+  --font-size-header: 3.218rem;
+  --font-size-tstutil: 1.600rem;
+  --font-size-funztit: 2.214rem;
+  --font-size-funzion: 1.582rem;
+}
+
+html[data-w="1580"] {
+  --font-size-header: 3.271rem;
+  --font-size-tstutil: 1.624rem;
+  --font-size-funztit: 2.241rem;
+  --font-size-funzion: 1.601rem;
+}
+
+html[data-w="1610"] {
+  --font-size-header: 3.323rem;
+  --font-size-tstutil: 1.648rem;
+  --font-size-funztit: 2.268rem;
+  --font-size-funzion: 1.621rem;
+}
+
+html[data-w="1640"] {
+  --font-size-header: 3.375rem;
+  --font-size-tstutil: 1.672rem;
+  --font-size-funztit: 2.295rem;
+  --font-size-funzion: 1.641rem;
+}
+
+html[data-w="1670"] {
+  --font-size-header: 3.428rem;
+  --font-size-tstutil: 1.696rem;
+  --font-size-funztit: 2.323rem;
+  --font-size-funzion: 1.660rem;
+}
+
+html[data-w="1700"] {
+  --font-size-header: 3.480rem;
+  --font-size-tstutil: 1.720rem;
+  --font-size-funztit: 2.350rem;
+  --font-size-funzion: 1.680rem;
+}
+
+html[data-w="1730"] {
+  --font-size-header: 3.532rem;
+  --font-size-tstutil: 1.744rem;
+  --font-size-funztit: 2.377rem;
+  --font-size-funzion: 1.700rem;
+}
+
+html[data-w="1760"] {
+  --font-size-header: 3.585rem;
+  --font-size-tstutil: 1.768rem;
+  --font-size-funztit: 2.405rem;
+  --font-size-funzion: 1.719rem;
+}
+
+html[data-w="1790"] {
+  --font-size-header: 3.637rem;
+  --font-size-tstutil: 1.792rem;
+  --font-size-funztit: 2.432rem;
+  --font-size-funzion: 1.739rem;
+}
+
+html[data-w="1820"] {
+  --font-size-header: 3.689rem;
+  --font-size-tstutil: 1.816rem;
+  --font-size-funztit: 2.459rem;
+  --font-size-funzion: 1.759rem;
+}
+
+html[data-w="1850"] {
+  --font-size-header: 3.742rem;
+  --font-size-tstutil: 1.840rem;
+  --font-size-funztit: 2.486rem;
+  --font-size-funzion: 1.778rem;
+}
+
+html[data-w="1880"] {
+  --font-size-header: 3.794rem;
+  --font-size-tstutil: 1.864rem;
+  --font-size-funztit: 2.514rem;
+  --font-size-funzion: 1.798rem;
+}
+
+html[data-w="1910"] {
+  --font-size-header: 3.847rem;
+  --font-size-tstutil: 1.888rem;
+  --font-size-funztit: 2.541rem;
+  --font-size-funzion: 1.817rem;
+}
+
+html[data-w="1940"] {
+  --font-size-header: 3.899rem;
+  --font-size-tstutil: 1.912rem;
+  --font-size-funztit: 2.568rem;
+  --font-size-funzion: 1.837rem;
+}
+
+html[data-w="1970"] {
+  --font-size-header: 3.951rem;
+  --font-size-tstutil: 1.936rem;
+  --font-size-funztit: 2.595rem;
+  --font-size-funzion: 1.857rem;
+}
+
+html[data-w="2000"] {
+  --font-size-header: 4.004rem;
+  --font-size-tstutil: 1.960rem;
+  --font-size-funztit: 2.623rem;
+  --font-size-funzion: 1.876rem;
+}
+
+html[data-w="9999"] {
+  --font-size-header: 4.056rem;
+  --font-size-tstutil: 1.984rem;
+  --font-size-funztit: 2.650rem;
+  --font-size-funzion: 1.896rem;
+}
+
